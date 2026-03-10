@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin PPA</title>
+  <style>
+    :root{
+      --bg:#f3f6fb;
+      --card:#ffffff;
+      --line:#d9e2ef;
+      --text:#0f172a;
+      --muted:#64748b;
+      --primary:#2563eb;
+      --primary-2:#1d4ed8;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --shadow:0 16px 40px rgba(15,23,42,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#eaf0f8,#f3f6fb);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      color:var(--text);
+      padding:20px;
+    }
+    .card{
+      width:min(560px,100%);
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:28px;
+      font-weight:900;
+    }
+    p{
+      margin:0 0 16px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    label{
+      display:block;
+      margin:12px 0 6px;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    input,select,button{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--line);
+      padding:12px 14px;
+      font:inherit;
+      outline:none;
+    }
+    button{
+      margin-top:14px;
+      border:none;
+      color:#fff;
+      font-weight:900;
+      background:linear-gradient(135deg,var(--primary-2),var(--primary));
+      cursor:pointer;
+    }
+    button:hover{filter:brightness(1.03)}
+    .hidden{display:none}
+    .msg{
+      margin-top:14px;
+      font-size:14px;
+      font-weight:700;
+    }
+    .ok{color:var(--success)}
+    .error{color:var(--danger)}
+    .top-actions{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    .top-actions button{
+      flex:1;
+      margin-top:0;
+    }
+    .secondary{
+      background:linear-gradient(135deg,#0f172a,#334155);
+    }
+    .back-btn{
+      margin-bottom:14px;
+      background:linear-gradient(135deg,#0f172a,#334155);
+    }
+    .info-box{
+      margin-top:16px;
+      padding:14px;
+      border-radius:16px;
+      background:#f8fbff;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <button class="back-btn" id="backBtn">← Voltar ao dashboard</button>
+
+    <h1>Admin PPA</h1>
+    <p>Área protegida. Faça login como administrador para enviar ou atualizar a aderência diária em CSV ou XLSX.</p>
+
+    <div id="loginBox">
+      <label for="username">Usuário</label>
+      <input id="username" type="text" placeholder="Digite seu usuário" />
+
+      <label for="password">Senha</label>
+      <input id="password" type="password" placeholder="Digite sua senha" />
+
+      <button id="loginBtn">Entrar</button>
+    </div>
+
+    <div id="uploadBox" class="hidden">
+      <label for="dateInput">Data da aderência</label>
+      <input id="dateInput" type="date" />
+
+      <label for="modeSelect">Modo</label>
+      <select id="modeSelect">
+        <option value="create">Criar nova aderência</option>
+        <option value="update">Atualizar aderência existente</option>
+      </select>
+
+      <label for="fileInput">Arquivo CSV ou XLSX</label>
+      <input id="fileInput" type="file" accept=".csv,.xlsx" />
+
+      <div class="top-actions">
+        <button id="uploadBtn">Enviar arquivo</button>
+        <button id="logoutBtn" class="secondary">Sair</button>
+      </div>
+
+      <div class="info-box">
+        O sistema identifica a data informada como um novo dia de aderência.  
+        No modo <strong>criar</strong>, ele registra uma nova base.  
+        No modo <strong>atualizar</strong>, ele substitui os dados já existentes daquela data.
+      </div>
+    </div>
+
+    <div id="msg" class="msg"></div>
+  </div>
+
+  <script>
+    const API_BASE = "/api";
+
+    const $ = (id) => document.getElementById(id);
+
+    function setMsg(text, type = "ok") {
+      const msg = $("msg");
+      msg.textContent = text;
+      msg.className = `msg ${type}`;
+    }
+
+    function showUploadArea() {
+      $("loginBox").classList.add("hidden");
+      $("uploadBox").classList.remove("hidden");
+    }
+
+    function showLoginArea() {
+      $("loginBox").classList.remove("hidden");
+      $("uploadBox").classList.add("hidden");
+    }
+
+    function getToken() {
+      return localStorage.getItem("ppa_admin_token");
+    }
+
+    function saveToken(token) {
+      localStorage.setItem("ppa_admin_token", token);
+    }
+
+    function removeToken() {
+      localStorage.removeItem("ppa_admin_token");
+    }
+
+    async function validateSession() {
+      const token = getToken();
+
+      if (!token) {
+        showLoginArea();
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE}/auth/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error("Sessão inválida.");
+        }
+
+        showUploadArea();
+        setMsg("Sessão administrativa ativa.", "ok");
+      } catch (error) {
+        removeToken();
+        showLoginArea();
+        setMsg("Faça login para acessar a área administrativa.", "error");
+      }
+    }
+
+    $("loginBtn").addEventListener("click", async () => {
+      try {
+        const username = $("username").value.trim();
+        const password = $("password").value;
+
+        if (!username || !password) {
+          throw new Error("Preencha usuário e senha.");
+        }
+
+        const response = await fetch(`${API_BASE}/auth/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Erro no login.");
+        }
+
+        saveToken(data.token);
+        showUploadArea();
+        setMsg("Login realizado com sucesso.", "ok");
+        $("password").value = "";
+      } catch (error) {
+        setMsg(error.message, "error");
+      }
+    });
+
+    $("uploadBtn").addEventListener("click", async () => {
+      try {
+        const token = getToken();
+        if (!token) throw new Error("Você precisa estar logado.");
+
+        const date = $("dateInput").value;
+        const mode = $("modeSelect").value;
+        const file = $("fileInput").files[0];
+
+        if (!date) throw new Error("Selecione a data da aderência.");
+        if (!file) throw new Error("Selecione um arquivo CSV ou XLSX.");
+
+        const formData = new FormData();
+        formData.append("date", date);
+        formData.append("mode", mode);
+        formData.append("file", file);
+
+        const response = await fetch(`${API_BASE}/upload`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Erro ao enviar arquivo.");
+        }
+
+        setMsg(data.message || "Upload concluído com sucesso.", "ok");
+        $("fileInput").value = "";
+      } catch (error) {
+        setMsg(error.message, "error");
+      }
+    });
+
+    $("logoutBtn").addEventListener("click", () => {
+      removeToken();
+      showLoginArea();
+      setMsg("Sessão encerrada.", "ok");
+    });
+
+    $("backBtn").addEventListener("click", () => {
+      window.location.href = "/";
+    });
+
+    validateSession();
+  </script>
+</body>
+</html>
