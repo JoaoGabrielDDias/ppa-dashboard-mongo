@@ -797,7 +797,7 @@
         <div class="card kpi-card">
           <div class="kpi-label">% total do dia</div>
           <div class="kpi-value" id="kpiToday">0%</div>
-          <div class="kpi-foot">Total oficial vindo da linha Total do banco.</div>
+          <div class="kpi-foot">Total oficial.</div>
         </div>
 
         <div class="card kpi-card">
@@ -815,19 +815,19 @@
         <div class="card kpi-card">
           <div class="kpi-label">PPA total do dia</div>
           <div class="kpi-value" id="kpiPpaTotal">0</div>
-          <div class="kpi-foot">Valor da linha Total exportada.</div>
+          <div class="kpi-foot">Quantidade concluída no dia.</div>
         </div>
 
         <div class="card kpi-card">
           <div class="kpi-label">Concluído total do dia</div>
           <div class="kpi-value" id="kpiConcluidoTotal">0</div>
-          <div class="kpi-foot">Valor da linha Total exportada.</div>
+          <div class="kpi-foot">Valor total do modelo no Dia.</div>
         </div>
 
         <div class="card kpi-card">
           <div class="kpi-label">Lojas em 100%</div>
           <div class="kpi-value" id="kpi100">0</div>
-          <div class="kpi-foot">Somente lojas reais.</div>
+          <div class="kpi-foot">Somente lojas com 100% de aderência.</div>
         </div>
       </section>
 
@@ -1465,7 +1465,7 @@
           <td>${idx + 1}</td>
           <td><strong>${row.loja}</strong></td>
           <td><span class="badge b-blue">${formatPercent(row.aderencia)}</span></td>
-          <td>${row.yesterday == null ? `<span class="badge b-amber">Sem base</span>` : `<span class="badge b-violet">${formatPercent(row.yesterday)}</span>`}</td>
+          <td>${row.yesterday == null ? `<span class="badge b-amber">Sem PPA no Último Dia</span>` : `<span class="badge b-violet">${formatPercent(row.yesterday)}</span>`}</td>
           <td>${row.yesterday == null ? `<span class="badge b-amber">-</span>` : `<span class="badge ${variationBadge}">${formatDeltaPercent(row.delta)}</span>`}</td>
           <td><span class="badge ${statusBadge}">${statusText}</span></td>
           <td>${formatInt(row.qtdModeloPPA)}</td>
