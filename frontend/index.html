@@ -505,67 +505,12 @@
       box-shadow:0 8px 18px rgba(0,0,0,.12);
     }
 
-    .item strong {
-      color: #111827;
-      font-size: 15px;
-      display: inline-block;
-      margin-bottom: 6px;
-    }
-
-    .item div {
-      color: #374151;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .item a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .item a:hover { text-decoration: underline; }
-
     .left{
       display:flex;
       align-items:center;
       gap:8px;
       flex-wrap:wrap;
       min-width:0;
-    }
-
-    .status-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(120px,1fr));
-      gap:12px;
-      margin-bottom:14px;
-    }
-
-    .status-box{
-      background:var(--card-2);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-    }
-
-    .status-label{
-      font-size:11px;
-      font-weight:900;
-      color:var(--muted);
-      text-transform:uppercase;
-      margin-bottom:8px;
-    }
-
-    .status-value{
-      font-size:25px;
-      font-weight:900;
-      line-height:1;
-      margin-bottom:4px;
-    }
-
-    .status-foot{
-      font-size:12px;
-      color:var(--muted);
     }
 
     .rank-list,.metric-list{
@@ -747,7 +692,6 @@
       .mobile-top{display:block}
       .content{padding:16px}
       .title{font-size:26px}
-      .status-grid{grid-template-columns:1fr}
     }
 
     @media (max-width:700px){
@@ -773,7 +717,7 @@
     <aside class="sidebar">
       <div class="brand">
         <h1>PPA Analytics</h1>
-        <p><strong>Guardiões da Fronteira</strong><br></p>
+        <p><strong>Guardiões da Fronteira</strong></p>
       </div>
 
       <div class="panel">
@@ -853,13 +797,13 @@
         <div class="card kpi-card">
           <div class="kpi-label">% total do dia</div>
           <div class="kpi-value" id="kpiToday">0%</div>
-          <div class="kpi-foot"></div>
+          <div class="kpi-foot">Total oficial vindo da linha Total do banco.</div>
         </div>
 
         <div class="card kpi-card">
-          <div class="kpi-label">% Último PPA</div>
+          <div class="kpi-label">% total último PPA</div>
           <div class="kpi-value" id="kpiYesterday">-</div>
-          <div class="kpi-foot">Comparação com o Último PPA.</div>
+          <div class="kpi-foot">Comparação com o último PPA.</div>
         </div>
 
         <div class="card kpi-card">
@@ -871,19 +815,19 @@
         <div class="card kpi-card">
           <div class="kpi-label">PPA total do dia</div>
           <div class="kpi-value" id="kpiPpaTotal">0</div>
-          <div class="kpi-foot">.</div>
+          <div class="kpi-foot">Valor da linha Total exportada.</div>
         </div>
 
         <div class="card kpi-card">
           <div class="kpi-label">Concluído total do dia</div>
           <div class="kpi-value" id="kpiConcluidoTotal">0</div>
-          <div class="kpi-foot"></div>
+          <div class="kpi-foot">Valor da linha Total exportada.</div>
         </div>
 
         <div class="card kpi-card">
           <div class="kpi-label">Lojas em 100%</div>
           <div class="kpi-value" id="kpi100">0</div>
-          <div class="kpi-foot"></div>
+          <div class="kpi-foot">Somente lojas reais.</div>
         </div>
       </section>
 
@@ -1001,74 +945,11 @@
       </div>
 
       <div class="list">
-        <div class="item">
-          <div>
-            <strong>Projeto</strong><br>
-            Dashboard Operacional de Aderência PPA 😊
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Descrição</strong><br>
-            Este projeto consiste em um dashboard operacional desenvolvido com foco no acompanhamento da aderência PPA, utilizando como base a análise de gap diário e a constância mensal dos resultados.
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Objetivo</strong><br>
-            Permitir um acompanhamento semanal e mensal da aderência, trazendo uma visão mais estratégica e precisa da execução em loja.
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Funcionamento</strong><br>
-            Os dados são coletados via upload em área administrativa, armazenados no MongoDB e comparados automaticamente por data.
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Importante</strong><br>
-            Este dashboard é uma solução alternativa, não oficial, porém totalmente funcional, criada para apoiar a leitura rápida, o acompanhamento operacional e a tomada de decisão no dia a dia. 😊
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Aplicação</strong><br>
-            • Monitorar a aderência diária<br>
-            • Comparar resultados com agilidade<br>
-            • Visualizar gaps operacionais<br>
-            • Analisar consistência ao longo do mês<br>
-            • Apoiar a tomada de decisão com base em dados
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Criador</strong><br>
-            <span id="creatorInfo">João Gabriel</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>Cargo</strong><br>
-            Supervisor
-          </div>
-        </div>
-
-        <div class="item">
-          <div>
-            <strong>GitHub</strong><br>
-            <a href="https://github.com/JoaoGabrielDDias" target="_blank">
-              github.com/JoaoGabrielDDias
-            </a>
-          </div>
-        </div>
+        <div class="item"><div><strong>Projeto</strong><br>Dashboard Operacional de Aderência PPA 😊</div></div>
+        <div class="item"><div><strong>Descrição</strong><br>Dashboard operacional focado no acompanhamento da aderência PPA, comparativo diário e constância mensal.</div></div>
+        <div class="item"><div><strong>Objetivo</strong><br>Permitir um acompanhamento mais estratégico e preciso da execução em loja.</div></div>
+        <div class="item"><div><strong>Funcionamento</strong><br>Os dados são enviados pela área administrativa, salvos no MongoDB e comparados automaticamente por data.</div></div>
+        <div class="item"><div><strong>Criador</strong><br><span id="creatorInfo">João Gabriel</span></div></div>
       </div>
     </div>
   </div>
@@ -1088,18 +969,57 @@
 
     const $ = (id) => document.getElementById(id);
 
+    function on(id, event, handler) {
+      const el = $(id);
+      if (!el) {
+        console.warn(`Elemento não encontrado: #${id}`);
+        return;
+      }
+      el.addEventListener(event, handler);
+    }
+
     function setLoader(percent, text){
-      $("barFill").style.width = `${Math.max(0, Math.min(100, percent))}%`;
-      $("loaderStatus").textContent = text || "";
+      if ($("barFill")) $("barFill").style.width = `${Math.max(0, Math.min(100, percent))}%`;
+      if ($("loaderStatus")) $("loaderStatus").textContent = text || "";
     }
 
     function showLoader(text = "Carregando..."){
       setLoader(8, text);
-      $("loadingOverlay").classList.remove("hidden");
+      if ($("loadingOverlay")) $("loadingOverlay").classList.remove("hidden");
     }
 
     function hideLoader(){
-      $("loadingOverlay").classList.add("hidden");
+      if ($("loadingOverlay")) $("loadingOverlay").classList.add("hidden");
+    }
+
+    function openModal(modalId) {
+      const modal = $(modalId);
+      if (!modal) return;
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(modalId) {
+      const modal = $(modalId);
+      if (!modal) return;
+      modal.classList.remove("show");
+
+      const hasOpenModal = [...document.querySelectorAll(".modal")]
+        .some(m => m.classList.contains("show"));
+
+      if (!hasOpenModal) {
+        document.body.style.overflow = "";
+      }
+    }
+
+    function bindOverlayClose(modalId) {
+      const modal = $(modalId);
+      if (!modal) return;
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal(modalId);
+        }
+      });
     }
 
     function average(values){
@@ -1118,6 +1038,10 @@
 
     function formatInt(value){
       return Number(value || 0).toLocaleString("pt-BR");
+    }
+
+    function normalizeStatus(value){
+      return String(value || "").trim().toLowerCase();
     }
 
     function getDates(){
@@ -1162,69 +1086,69 @@
     }
 
     async function loadAllData(){
-  setLoader(15, "Buscando dados do banco...");
+      setLoader(15, "Buscando dados do banco...");
 
-  const response = await fetch(`${API_BASE}/dashboard/all`, {
-    cache: "no-store"
-  });
-
-  if(!response.ok){
-    throw new Error("Erro ao buscar dados do banco.");
-  }
-
-  const docs = await response.json();
-
-  const storeRows = [];
-  const totalRows = [];
-
-  docs.forEach(doc => {
-    const label = doc.label || doc.date;
-
-    (doc.stores || [])
-      .filter(store => !(String(store.loja || "").trim() === "251" && String(store.regional || "").trim() === GUARDIOES_REGION))
-      .forEach(store => {
-        storeRows.push({
-          date: doc.date,
-          label,
-          regional: store.regional || "",
-          loja: String(store.loja || "").trim(),
-          qtdModeloPPA: Number(store.qtdModeloPPA || 0),
-          qtdModeloConcluido: Number(store.qtdModeloConcluido || 0),
-          aderencia: Number(store.aderencia || 0),
-          status: String(store.status || "").trim()
-        });
+      const response = await fetch(`${API_BASE}/dashboard/all`, {
+        cache: "no-store"
       });
 
-    if(doc.totalRow){
-      totalRows.push({
-        date: doc.date,
-        label,
-        regional: doc.totalRow.regional || "",
-        loja: "Total",
-        qtdModeloPPA: Number(doc.totalRow.qtdModeloPPA || 0),
-        qtdModeloConcluido: Number(doc.totalRow.qtdModeloConcluido || 0),
-        aderencia: Number(doc.totalRow.aderencia || 0),
-        status: String(doc.totalRow.status || "").trim()
+      if(!response.ok){
+        throw new Error("Erro ao buscar dados do banco.");
+      }
+
+      const docs = await response.json();
+
+      const storeRows = [];
+      const totalRows = [];
+
+      docs.forEach(doc => {
+        const label = doc.label || doc.date;
+
+        (doc.stores || [])
+          .filter(store => !(String(store.loja || "").trim() === "251" && String(store.regional || "").trim() === GUARDIOES_REGION))
+          .forEach(store => {
+            storeRows.push({
+              date: doc.date,
+              label,
+              regional: store.regional || "",
+              loja: String(store.loja || "").trim(),
+              qtdModeloPPA: Number(store.qtdModeloPPA || 0),
+              qtdModeloConcluido: Number(store.qtdModeloConcluido || 0),
+              aderencia: Number(store.aderencia || 0),
+              status: String(store.status || "").trim()
+            });
+          });
+
+        if(doc.totalRow){
+          totalRows.push({
+            date: doc.date,
+            label,
+            regional: doc.totalRow.regional || "",
+            loja: "Total",
+            qtdModeloPPA: Number(doc.totalRow.qtdModeloPPA || 0),
+            qtdModeloConcluido: Number(doc.totalRow.qtdModeloConcluido || 0),
+            aderencia: Number(doc.totalRow.aderencia || 0),
+            status: String(doc.totalRow.status || "").trim()
+          });
+        }
       });
+
+      storeRows.sort((a,b) => a.date.localeCompare(b.date) || a.loja.localeCompare(b.loja));
+      totalRows.sort((a,b) => a.date.localeCompare(b.date));
+
+      state.storeRows = storeRows;
+      state.totalRows = totalRows;
+
+      const dates = getDates();
+      state.selectedDate = dates[dates.length - 1] || null;
+
+      const allRegions = [...new Set(storeRows.map(r => r.regional).filter(Boolean))];
+      if(!allRegions.includes(state.selectedRegion)){
+        state.selectedRegion = allRegions.includes(GUARDIOES_REGION) ? GUARDIOES_REGION : "";
+      }
+
+      setLoader(100, "Dados carregados com sucesso.");
     }
-  });
-
-  storeRows.sort((a,b) => a.date.localeCompare(b.date) || a.loja.localeCompare(b.loja));
-  totalRows.sort((a,b) => a.date.localeCompare(b.date));
-
-  state.storeRows = storeRows;
-  state.totalRows = totalRows;
-
-  const dates = getDates();
-  state.selectedDate = dates[dates.length - 1] || null;
-
-  const allRegions = [...new Set(storeRows.map(r => r.regional).filter(Boolean))];
-  if(!allRegions.includes(state.selectedRegion)){
-    state.selectedRegion = allRegions.includes(GUARDIOES_REGION) ? GUARDIOES_REGION : "";
-  }
-
-  setLoader(100, "Dados carregados com sucesso.");
-}
 
     function getDayBaseRows(){
       let rows = getStoreRowsByDate(state.selectedDate);
@@ -1233,177 +1157,208 @@
     }
 
     function getDisplayTotalForDate(date){
-  const totalRow = getTotalRowByDate(date);
+      const totalRow = getTotalRowByDate(date);
 
-  if(totalRow){
-    return {
-      adherence: Number(totalRow.aderencia || 0),
-      totalPPA: Number(totalRow.qtdModeloPPA || 0),
-      totalConcluido: Number(totalRow.qtdModeloConcluido || 0),
-      status: String(totalRow.status || "").trim()
-    };
-  }
+      if(totalRow){
+        return {
+          adherence: Number(totalRow.aderencia || 0),
+          totalPPA: Number(totalRow.qtdModeloPPA || 0),
+          totalConcluido: Number(totalRow.qtdModeloConcluido || 0),
+          status: String(totalRow.status || "").trim()
+        };
+      }
 
-  const rows = getStoreRowsByDate(date).filter(r => !(r.loja === "251" && r.regional === GUARDIOES_REGION));
+      const rows = getStoreRowsByDate(date).filter(r => !(r.loja === "251" && r.regional === GUARDIOES_REGION));
 
-  return {
-    adherence: average(rows.map(r => r.aderencia)),
-    totalPPA: rows.reduce((sum, r) => sum + r.qtdModeloPPA, 0),
-    totalConcluido: rows.reduce((sum, r) => sum + r.qtdModeloConcluido, 0),
-    status: ""
-  };
-}
-
-    function buildComparison(){
-  const currentDate = state.selectedDate;
-  const previousDate = getPreviousDate(currentDate);
-
-  let todayRows = getStoreRowsByDate(currentDate);
-  let yesterdayRows = previousDate ? getStoreRowsByDate(previousDate) : [];
-
-  if(state.selectedRegion){
-    todayRows = todayRows.filter(r => r.regional === state.selectedRegion);
-    yesterdayRows = yesterdayRows.filter(r => r.regional === state.selectedRegion);
-  }
-
-  const yesterdayMap = new Map(yesterdayRows.map(r => [r.loja, r]));
-
-  let comparisonRows = todayRows.map(row => {
-    const prev = yesterdayMap.get(row.loja);
-    const yesterday = prev ? prev.aderencia : null;
-    const delta = yesterday == null ? 0 : row.aderencia - yesterday;
-
-    return {
-      ...row,
-      yesterday,
-      delta,
-      status: row.status || classifyStatus(row.aderencia),
-      execution: getExecutionStatus(row.aderencia)
-    };
-  });
-
-  if(state.selectedStore){
-    comparisonRows = comparisonRows.filter(r => r.loja === state.selectedStore);
-  }
-
-  comparisonRows.sort((a,b) => b.aderencia - a.aderencia || b.delta - a.delta);
-
-  const todayTotalInfo = getDisplayTotalForDate(currentDate);
-  const yesterdayTotalInfo = previousDate ? getDisplayTotalForDate(previousDate) : null;
-
-  return {
-    currentDate,
-    previousDate,
-    comparisonRows,
-    todayTotal: todayTotalInfo.adherence,
-    yesterdayTotal: yesterdayTotalInfo ? yesterdayTotalInfo.adherence : 0,
-    totalDelta: yesterdayTotalInfo ? (todayTotalInfo.adherence - yesterdayTotalInfo.adherence) : 0,
-    todayTotalPPA: todayTotalInfo.totalPPA,
-    todayTotalConcluido: todayTotalInfo.totalConcluido,
-    todayStatus: todayTotalInfo.status || ""
-  };
-}
-
-    function buildMonthlySummary(){
-  const monthKey = getMonthKey(state.selectedDate);
-
-  let monthStoreRows = state.storeRows.filter(r => getMonthKey(r.date) === monthKey);
-  if(state.selectedRegion){
-    monthStoreRows = monthStoreRows.filter(r => r.regional === state.selectedRegion);
-  }
-
-  let monthTotalRows = state.totalRows.filter(r => getMonthKey(r.date) === monthKey);
-
-  // Se existir total oficial por dia, usa ele.
-  // Se não existir, calcula fallback pelas lojas daquele dia.
-  const monthDates = [...new Set(monthStoreRows.map(r => r.date))].sort();
-
-  const officialDailyTotals = monthDates.map(date => {
-    const official = monthTotalRows.find(t => t.date === date);
-
-    if (official) {
       return {
-        date,
-        adherence: Number(official.aderencia || 0),
-        totalPPA: Number(official.qtdModeloPPA || 0),
-        totalConcluido: Number(official.qtdModeloConcluido || 0),
-        status: String(official.status || "").trim()
+        adherence: average(rows.map(r => Number(r.aderencia || 0))),
+        totalPPA: rows.reduce((sum, r) => sum + Number(r.qtdModeloPPA || 0), 0),
+        totalConcluido: rows.reduce((sum, r) => sum + Number(r.qtdModeloConcluido || 0), 0),
+        status: ""
       };
     }
 
-    const rowsOfDay = monthStoreRows.filter(r => r.date === date);
+    function buildComparison(){
+      const currentDate = state.selectedDate;
+      const previousDate = getPreviousDate(currentDate);
 
-    return {
-      date,
-      adherence: average(rowsOfDay.map(r => Number(r.aderencia || 0))),
-      totalPPA: rowsOfDay.reduce((sum, r) => sum + Number(r.qtdModeloPPA || 0), 0),
-      totalConcluido: rowsOfDay.reduce((sum, r) => sum + Number(r.qtdModeloConcluido || 0), 0),
-      status: ""
-    };
-  });
+      let todayRows = getStoreRowsByDate(currentDate);
+      let yesterdayRows = previousDate ? getStoreRowsByDate(previousDate) : [];
 
-  const monthAverage = officialDailyTotals.length
-    ? average(officialDailyTotals.map(d => d.adherence))
-    : 0;
+      if(state.selectedRegion){
+        todayRows = todayRows.filter(r => r.regional === state.selectedRegion);
+        yesterdayRows = yesterdayRows.filter(r => r.regional === state.selectedRegion);
+      }
 
-  const monthPPA = officialDailyTotals.reduce((sum, d) => sum + d.totalPPA, 0);
-  const monthConcluido = officialDailyTotals.reduce((sum, d) => sum + d.totalConcluido, 0);
-  const monthFaltante = Math.max(0, monthPPA - monthConcluido);
+      const yesterdayMap = new Map(yesterdayRows.map(r => [r.loja, r]));
 
-  const map = new Map();
+      let comparisonRows = todayRows.map(row => {
+        const prev = yesterdayMap.get(row.loja);
+        const yesterday = prev ? prev.aderencia : null;
+        const delta = yesterday == null ? 0 : row.aderencia - yesterday;
 
-  monthStoreRows.forEach(row => {
-    if(!map.has(row.loja)){
-      map.set(row.loja, {
-        loja: row.loja,
-        regional: row.regional,
-        days: 0,
-        highDays: 0,
-        lowDays: 0,
-        sumAdherence: 0,
-        totalProdutosModelo: 0,
-        totalConcluido: 0
+        return {
+          ...row,
+          yesterday,
+          delta,
+          status: row.status || classifyStatus(row.aderencia),
+          execution: getExecutionStatus(row.aderencia)
+        };
       });
+
+      if(state.selectedStore){
+        comparisonRows = comparisonRows.filter(r => r.loja === state.selectedStore);
+      }
+
+      comparisonRows.sort((a,b) => b.aderencia - a.aderencia || b.delta - a.delta);
+
+      const todayTotalInfo = getDisplayTotalForDate(currentDate);
+      const yesterdayTotalInfo = previousDate ? getDisplayTotalForDate(previousDate) : null;
+
+      return {
+        currentDate,
+        previousDate,
+        comparisonRows,
+        todayTotal: todayTotalInfo.adherence,
+        yesterdayTotal: yesterdayTotalInfo ? yesterdayTotalInfo.adherence : 0,
+        totalDelta: yesterdayTotalInfo ? (todayTotalInfo.adherence - yesterdayTotalInfo.adherence) : 0,
+        todayTotalPPA: todayTotalInfo.totalPPA,
+        todayTotalConcluido: todayTotalInfo.totalConcluido,
+        todayStatus: todayTotalInfo.status || ""
+      };
     }
 
-    const item = map.get(row.loja);
-    item.days += 1;
-    if(Number(row.aderencia || 0) >= 95) item.highDays += 1;
-    else item.lowDays += 1;
+    function buildMonthlySummary(){
+      const monthKey = getMonthKey(state.selectedDate);
 
-    item.sumAdherence += Number(row.aderencia || 0);
-    item.totalProdutosModelo += Number(row.qtdModeloPPA || 0);
-    item.totalConcluido += Number(row.qtdModeloConcluido || 0);
-  });
+      let monthStoreRows = state.storeRows.filter(r => getMonthKey(r.date) === monthKey);
+      if(state.selectedRegion){
+        monthStoreRows = monthStoreRows.filter(r => r.regional === state.selectedRegion);
+      }
 
-  const stores = [...map.values()].map(item => {
-    const constancia = item.days ? (item.highDays / item.days) * 100 : 0;
-    const media = item.days ? (item.sumAdherence / item.days) : 0;
-    const baixaConstancia = item.days ? (item.lowDays / item.days) * 100 : 0;
-    const faltante = Math.max(0, item.totalProdutosModelo - item.totalConcluido);
+      let monthTotalRows = state.totalRows.filter(r => getMonthKey(r.date) === monthKey);
 
-    return {
-      ...item,
-      constancia,
-      media,
-      baixaConstancia,
-      faltante
-    };
-  });
+      const monthDates = [...new Set(monthStoreRows.map(r => r.date))].sort();
 
-  stores.sort((a,b) => b.constancia - a.constancia || b.media - a.media);
-  const lowStores = [...stores].sort((a,b) => b.baixaConstancia - a.baixaConstancia || a.media - b.media);
+      const officialDailyTotals = monthDates.map(date => {
+        const official = monthTotalRows.find(t => t.date === date);
 
-  return {
-    stores,
-    lowStores,
-    monthAverage,
-    monthTotalPPA: monthPPA,
-    monthTotalConcluido: monthConcluido,
-    monthFaltante,
-    officialDailyTotals
-  };
-}
+        if (official) {
+          return {
+            date,
+            adherence: Number(official.aderencia || 0),
+            totalPPA: Number(official.qtdModeloPPA || 0),
+            totalConcluido: Number(official.qtdModeloConcluido || 0),
+            status: String(official.status || "").trim()
+          };
+        }
+
+        const rowsOfDay = monthStoreRows.filter(r => r.date === date);
+
+        return {
+          date,
+          adherence: average(rowsOfDay.map(r => Number(r.aderencia || 0))),
+          totalPPA: rowsOfDay.reduce((sum, r) => sum + Number(r.qtdModeloPPA || 0), 0),
+          totalConcluido: rowsOfDay.reduce((sum, r) => sum + Number(r.qtdModeloConcluido || 0), 0),
+          status: ""
+        };
+      });
+
+      const monthAverage = officialDailyTotals.length
+        ? average(officialDailyTotals.map(d => d.adherence))
+        : 0;
+
+      const monthPPA = officialDailyTotals.reduce((sum, d) => sum + d.totalPPA, 0);
+      const monthConcluido = officialDailyTotals.reduce((sum, d) => sum + d.totalConcluido, 0);
+      const monthFaltante = Math.max(0, monthPPA - monthConcluido);
+
+      const map = new Map();
+
+      monthStoreRows.forEach(row => {
+        if(!map.has(row.loja)){
+          map.set(row.loja, {
+            loja: row.loja,
+            regional: row.regional,
+            days: 0,
+            highDays: 0,
+            lowDays: 0,
+            sumAdherence: 0,
+            totalProdutosModelo: 0,
+            totalConcluido: 0
+          });
+        }
+
+        const item = map.get(row.loja);
+        item.days += 1;
+        if(Number(row.aderencia || 0) >= 95) item.highDays += 1;
+        else item.lowDays += 1;
+
+        item.sumAdherence += Number(row.aderencia || 0);
+        item.totalProdutosModelo += Number(row.qtdModeloPPA || 0);
+        item.totalConcluido += Number(row.qtdModeloConcluido || 0);
+      });
+
+      const stores = [...map.values()].map(item => {
+        const constancia = item.days ? (item.highDays / item.days) * 100 : 0;
+        const media = item.days ? (item.sumAdherence / item.days) : 0;
+        const baixaConstancia = item.days ? (item.lowDays / item.days) * 100 : 0;
+        const faltante = Math.max(0, item.totalProdutosModelo - item.totalConcluido);
+
+        return {
+          ...item,
+          constancia,
+          media,
+          baixaConstancia,
+          faltante
+        };
+      });
+
+      stores.sort((a,b) => b.constancia - a.constancia || b.media - a.media);
+      const lowStores = [...stores].sort((a,b) => b.baixaConstancia - a.baixaConstancia || a.media - b.media);
+
+      return {
+        stores,
+        lowStores,
+        monthAverage,
+        monthTotalPPA: monthPPA,
+        monthTotalConcluido: monthConcluido,
+        monthFaltante,
+        officialDailyTotals
+      };
+    }
+
+    function getStoreDetail(storeName){
+      let storeRows = state.storeRows.filter(r => r.loja === storeName);
+      if(state.selectedRegion) storeRows = storeRows.filter(r => r.regional === state.selectedRegion);
+      storeRows.sort((a,b) => a.date.localeCompare(b.date));
+      if(!storeRows.length) return null;
+
+      const days = storeRows.length;
+      const days100 = storeRows.filter(r => r.aderencia >= 100).length;
+      const daysNot100 = days - days100;
+      const highDays = storeRows.filter(r => r.aderencia >= 95).length;
+      const totalProdutosModelo = storeRows.reduce((sum, r) => sum + r.qtdModeloPPA, 0);
+      const totalConcluido = storeRows.reduce((sum, r) => sum + r.qtdModeloConcluido, 0);
+      const avgAdherence = average(storeRows.map(r => r.aderencia));
+      const bestDay = [...storeRows].sort((a,b) => b.aderencia - a.aderencia)[0];
+      const worstDay = [...storeRows].sort((a,b) => a.aderencia - b.aderencia)[0];
+      const regional = storeRows[0].regional || "-";
+
+      return {
+        loja: storeName,
+        regional,
+        days,
+        days100,
+        daysNot100,
+        highDays,
+        totalProdutosModelo,
+        totalConcluido,
+        avgAdherence,
+        bestDay,
+        worstDay,
+        rows: storeRows
+      };
+    }
 
     function populateFilters(){
       const dateSelect = $("dateSelect");
@@ -1411,6 +1366,8 @@
       const storeSelect = $("storeSelect");
 
       const dates = getDates();
+      if (!dateSelect || !regionSelect || !storeSelect) return;
+
       dateSelect.innerHTML = "";
       dates.forEach(date => {
         const op = document.createElement("option");
@@ -1454,140 +1411,155 @@
     }
 
     function renderKPIs(data){
-  const baseRows = getDayBaseRows();
-  const count100 = baseRows.filter(r => r.aderencia >= 100).length;
+      const baseRows = getDayBaseRows();
+      const count100 = baseRows.filter(r => r.aderencia >= 100).length;
 
-  $("kpiToday").textContent = formatPercent(data.todayTotal);
-  $("kpiYesterday").textContent = data.previousDate ? formatPercent(data.yesterdayTotal) : "-";
-  $("kpiDelta").textContent = data.previousDate ? formatDeltaPercent(data.totalDelta) : "-";
-  $("kpiDelta").className = `kpi-value ${data.previousDate ? (data.totalDelta > 0 ? "up" : data.totalDelta < 0 ? "down" : "flat") : ""}`;
+      $("kpiToday").textContent = formatPercent(data.todayTotal);
+      $("kpiYesterday").textContent = data.previousDate ? formatPercent(data.yesterdayTotal) : "-";
+      $("kpiDelta").textContent = data.previousDate ? formatDeltaPercent(data.totalDelta) : "-";
+      $("kpiDelta").className = `kpi-value ${data.previousDate ? (data.totalDelta > 0 ? "up" : data.totalDelta < 0 ? "down" : "flat") : ""}`;
 
-  $("kpiDeltaFoot").textContent = data.todayStatus
-    ? `Status oficial: ${data.todayStatus}`
-    : data.previousDate
-      ? (data.totalDelta > 0 ? "Cresceu" : data.totalDelta < 0 ? "Caiu" : "Estável")
-      : "Sem comparação anterior";
+      $("kpiDeltaFoot").textContent = data.todayStatus
+        ? `Status oficial: ${data.todayStatus}`
+        : data.previousDate
+          ? (data.totalDelta > 0 ? "Cresceu" : data.totalDelta < 0 ? "Caiu" : "Estável")
+          : "Sem comparação anterior";
 
-  $("kpiPpaTotal").textContent = formatInt(data.todayTotalPPA);
-  $("kpiConcluidoTotal").textContent = formatInt(data.todayTotalConcluido);
-  $("kpi100").textContent = formatInt(count100);
+      $("kpiPpaTotal").textContent = formatInt(data.todayTotalPPA);
+      $("kpiConcluidoTotal").textContent = formatInt(data.todayTotalConcluido);
+      $("kpi100").textContent = formatInt(count100);
 
-  const currentLabel = (state.storeRows.find(r => r.date === data.currentDate)?.label || data.currentDate);
-  const previousLabel = data.previousDate ? (state.storeRows.find(r => r.date === data.previousDate)?.label || data.previousDate) : "sem dia anterior";
-  const recorte = state.selectedRegion ? state.selectedRegion : "Todas as regionais";
+      const currentLabel = (state.storeRows.find(r => r.date === data.currentDate)?.label || data.currentDate);
+      const previousLabel = data.previousDate ? (state.storeRows.find(r => r.date === data.previousDate)?.label || data.previousDate) : "sem dia anterior";
+      const recorte = state.selectedRegion ? state.selectedRegion : "Todas as regionais";
 
-  $("subtitle").textContent = `Comparando ${currentLabel} com ${previousLabel} • Recorte: ${recorte}${state.selectedStore ? ` • Loja: ${state.selectedStore}` : ""}`;
-}
+      $("subtitle").textContent = `Comparando ${currentLabel} com ${previousLabel} • Recorte: ${recorte}${state.selectedStore ? ` • Loja: ${state.selectedStore}` : ""}`;
+    }
 
     function renderTable(data){
-  const tbody = $("tableBody");
-  tbody.innerHTML = "";
+      const tbody = $("tableBody");
+      tbody.innerHTML = "";
 
-  if(!data.comparisonRows.length){
-    tbody.innerHTML = `<tr><td colspan="8">Nenhum dado encontrado.</td></tr>`;
-    return;
-  }
+      if(!data.comparisonRows.length){
+        tbody.innerHTML = `<tr><td colspan="8">Nenhum dado encontrado.</td></tr>`;
+        return;
+      }
 
-  data.comparisonRows.forEach((row, idx) => {
-    const tr = document.createElement("tr");
-    tr.className = "clickable-row";
+      data.comparisonRows.forEach((row, idx) => {
+        const tr = document.createElement("tr");
+        tr.className = "clickable-row";
 
-    const statusText = row.status || classifyStatus(row.aderencia);
-    const statusNorm = String(statusText || "").toLowerCase();
+        const statusText = row.status || classifyStatus(row.aderencia);
+        const statusNorm = String(statusText || "").toLowerCase();
 
-    let statusBadge = "b-amber";
-    if (statusNorm.includes("finalizado") || statusNorm === "100%") statusBadge = "b-green";
-    else if (statusNorm.includes("nao iniciado") || statusNorm.includes("não iniciado")) statusBadge = "b-red";
-    else if (statusNorm.includes("andamento")) statusBadge = "b-blue";
-    else if (row.aderencia >= 95) statusBadge = "b-green";
-    else if (row.aderencia < 70) statusBadge = "b-red";
+        let statusBadge = "b-amber";
+        if (statusNorm.includes("finalizado") || statusNorm === "100%") statusBadge = "b-green";
+        else if (statusNorm.includes("nao iniciado") || statusNorm.includes("não iniciado")) statusBadge = "b-red";
+        else if (statusNorm.includes("andamento")) statusBadge = "b-blue";
+        else if (row.aderencia >= 95) statusBadge = "b-green";
+        else if (row.aderencia < 70) statusBadge = "b-red";
 
-    const variationBadge = getVariationBadgeClass(row.delta);
+        const variationBadge = getVariationBadgeClass(row.delta);
 
-    tr.innerHTML = `
-      <td>${idx + 1}</td>
-      <td><strong>${row.loja}</strong></td>
-      <td><span class="badge b-blue">${formatPercent(row.aderencia)}</span></td>
-      <td>${row.yesterday == null ? `<span class="badge b-amber">Sem PPA no Último Dia</span>` : `<span class="badge b-violet">${formatPercent(row.yesterday)}</span>`}</td>
-      <td>${row.yesterday == null ? `<span class="badge b-amber">-</span>` : `<span class="badge ${variationBadge}">${formatDeltaPercent(row.delta)}</span>`}</td>
-      <td><span class="badge ${statusBadge}">${statusText}</span></td>
-      <td>${formatInt(row.qtdModeloPPA)}</td>
-      <td>${formatInt(row.qtdModeloConcluido)}</td>
-    `;
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td><strong>${row.loja}</strong></td>
+          <td><span class="badge b-blue">${formatPercent(row.aderencia)}</span></td>
+          <td>${row.yesterday == null ? `<span class="badge b-amber">Sem base</span>` : `<span class="badge b-violet">${formatPercent(row.yesterday)}</span>`}</td>
+          <td>${row.yesterday == null ? `<span class="badge b-amber">-</span>` : `<span class="badge ${variationBadge}">${formatDeltaPercent(row.delta)}</span>`}</td>
+          <td><span class="badge ${statusBadge}">${statusText}</span></td>
+          <td>${formatInt(row.qtdModeloPPA)}</td>
+          <td>${formatInt(row.qtdModeloConcluido)}</td>
+        `;
 
-    tr.addEventListener("click", () => openStoreDetail(row.loja));
-    tbody.appendChild(tr);
-  });
-}
+        tr.addEventListener("click", () => openStoreDetail(row.loja));
+        tbody.appendChild(tr);
+      });
+    }
 
-function normalizeStatus(value){
-  return String(value || "").trim().toLowerCase();
-}
+    function closeStoreDetail() {
+      closeModal("detailModal");
+    }
+
+    function openAbout() {
+      if ($("creatorInfo")) $("creatorInfo").textContent = PROJECT_CREATOR;
+      openModal("aboutModal");
+    }
+
+    function closeAbout() {
+      closeModal("aboutModal");
+    }
+
+    function closeMenuModal() {
+      closeModal("menuModal");
+    }
 
     function openStoreDetail(storeName){
-  const detail = getStoreDetail(storeName);
-  if(!detail) return;
+      try {
+        const detail = getStoreDetail(storeName);
+        if(!detail) return;
 
-  $("detailTitle").textContent = detail.loja;
-  $("detailSubtitle").textContent = `${detail.regional} • ${detail.days} dias avaliados`;
+        $("detailTitle").textContent = detail.loja;
+        $("detailSubtitle").textContent = `${detail.regional} • ${detail.days} dias avaliados`;
 
-  const detailKpis = $("detailKpis");
-  detailKpis.innerHTML = "";
+        const detailKpis = $("detailKpis");
+        detailKpis.innerHTML = "";
 
-  const kpis = [
-    ["Dias avaliados", formatInt(detail.days)],
-    ["Dias em 100%", formatInt(detail.days100)],
-    ["Dias sem 100%", formatInt(detail.daysNot100)],
-    ["Dias acima de 95%", formatInt(detail.highDays)],
-    ["Qtd PPA", formatInt(detail.totalProdutosModelo)],
-    ["Qtd Concluído", formatInt(detail.totalConcluido)]
-  ];
+        const kpis = [
+          ["Dias avaliados", formatInt(detail.days)],
+          ["Dias em 100%", formatInt(detail.days100)],
+          ["Dias sem 100%", formatInt(detail.daysNot100)],
+          ["Dias acima de 95%", formatInt(detail.highDays)],
+          ["Qtd PPA", formatInt(detail.totalProdutosModelo)],
+          ["Qtd Concluído", formatInt(detail.totalConcluido)]
+        ];
 
-  kpis.forEach(([label, value]) => {
-    const div = document.createElement("div");
-    div.className = "mini-card";
-    div.innerHTML = `
-      <div class="mini-label">${label}</div>
-      <div class="mini-value">${value}</div>
-    `;
-    detailKpis.appendChild(div);
-  });
+        kpis.forEach(([label, value]) => {
+          const div = document.createElement("div");
+          div.className = "mini-card";
+          div.innerHTML = `
+            <div class="mini-label">${label}</div>
+            <div class="mini-value">${value}</div>
+          `;
+          detailKpis.appendChild(div);
+        });
 
-  const showWorstDay = detail.worstDay && Number(detail.worstDay.aderencia || 0) < 30;
+        const showWorstDay = detail.worstDay && Number(detail.worstDay.aderencia || 0) < 30;
 
-  $("detailSummary").innerHTML = `
-    A loja <strong>${detail.loja}</strong> possui média de aderência de <strong>${formatPercent(detail.avgAdherence)}</strong>.
-    <br><br>
-    Melhor dia: <strong>${detail.bestDay.label}</strong> com <strong>${formatPercent(detail.bestDay.aderencia)}</strong>.
-    ${showWorstDay ? `<br>Pior dia: <strong>${detail.worstDay.label}</strong> com <strong>${formatPercent(detail.worstDay.aderencia)}</strong>.` : ""}
-    <br><br>
-    Foram <strong>${detail.days100}</strong> dias concluídos em 100%.
-    No período, a loja acumulou <strong>${formatInt(detail.totalProdutosModelo)}</strong> em Qtd ModeloCor PPA.
-  `;
+        $("detailSummary").innerHTML = `
+          A loja <strong>${detail.loja}</strong> possui média de aderência de <strong>${formatPercent(detail.avgAdherence)}</strong>.
+          <br><br>
+          Melhor dia: <strong>${detail.bestDay.label}</strong> com <strong>${formatPercent(detail.bestDay.aderencia)}</strong>.
+          ${showWorstDay ? `<br>Pior dia: <strong>${detail.worstDay.label}</strong> com <strong>${formatPercent(detail.worstDay.aderencia)}</strong>.` : ""}
+          <br><br>
+          Foram <strong>${detail.days100}</strong> dias concluídos em 100%.
+          No período, a loja acumulou <strong>${formatInt(detail.totalProdutosModelo)}</strong> em Qtd ModeloCor PPA.
+        `;
 
-  const body = $("detailHistoryBody");
-  body.innerHTML = "";
-  detail.rows.forEach(row => {
-    const exec = getExecutionStatus(row.aderencia);
-    const statusText = row.status || exec.label;
+        const body = $("detailHistoryBody");
+        body.innerHTML = "";
 
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${row.label}</td>
-      <td><span class="badge b-blue">${formatPercent(row.aderencia)}</span></td>
-      <td><span class="badge ${exec.css}">${statusText}</span></td>
-      <td>${formatInt(row.qtdModeloPPA)}</td>
-      <td>${formatInt(row.qtdModeloConcluido)}</td>
-    `;
-    body.appendChild(tr);
-  });
+        detail.rows.forEach(row => {
+          const exec = getExecutionStatus(row.aderencia);
+          const statusText = row.status || exec.label;
 
-  $("detailModal").classList.add("show");
-}
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${row.label}</td>
+            <td><span class="badge b-blue">${formatPercent(row.aderencia)}</span></td>
+            <td><span class="badge ${exec.css}">${statusText}</span></td>
+            <td>${formatInt(row.qtdModeloPPA)}</td>
+            <td>${formatInt(row.qtdModeloConcluido)}</td>
+          `;
+          body.appendChild(tr);
+        });
 
-    function closeStoreDetail(){ $("detailModal").classList.remove("show"); }
-    function openAbout(){ $("creatorInfo").textContent = PROJECT_CREATOR; $("aboutModal").classList.add("show"); }
-    function closeAbout(){ $("aboutModal").classList.remove("show"); }
+        openModal("detailModal");
+      } catch (error) {
+        console.error("Erro ao abrir detalhe da loja:", error);
+        alert("Não foi possível abrir o detalhe da loja.");
+      }
+    }
 
     function renderMonthlyInteractiveDetail(kind){
       const monthly = buildMonthlySummary();
@@ -1633,23 +1605,23 @@ function normalizeStatus(value){
       }
 
       if(kind === "avg"){
-  return `
-    <div class="metric-detail">
-      <h3 class="section-title" style="font-size:17px;margin-bottom:10px;">Detalhe da média do mês</h3>
-      <div class="summary-text">
-        Média consolidada do mês: <strong>${formatPercent(monthly.monthAverage)}</strong>.
-        <br><br>
-        Total de PPA no mês: <strong>${formatInt(monthly.monthTotalPPA)}</strong>.
-        <br>
-        Total concluído no mês: <strong>${formatInt(monthly.monthTotalConcluido)}</strong>.
-        <br>
-        Quantidade faltante no mês: <strong>${formatInt(monthly.monthFaltante)}</strong>.
-        <br><br>
-        Dias considerados no mês: <strong>${formatInt(monthly.officialDailyTotals.length)}</strong>.
-      </div>
-    </div>
-  `;
-}
+        return `
+          <div class="metric-detail">
+            <h3 class="section-title" style="font-size:17px;margin-bottom:10px;">Detalhe da média do mês</h3>
+            <div class="summary-text">
+              Média consolidada do mês: <strong>${formatPercent(monthly.monthAverage)}</strong>.
+              <br><br>
+              Total de PPA no mês: <strong>${formatInt(monthly.monthTotalPPA)}</strong>.
+              <br>
+              Total concluído no mês: <strong>${formatInt(monthly.monthTotalConcluido)}</strong>.
+              <br>
+              Quantidade faltante no mês: <strong>${formatInt(monthly.monthFaltante)}</strong>.
+              <br><br>
+              Dias considerados no mês: <strong>${formatInt(monthly.officialDailyTotals.length)}</strong>.
+            </div>
+          </div>
+        `;
+      }
 
       if(kind === "done"){
         const rows = [...monthly.stores].sort((a,b) => b.faltante - a.faltante).slice(0,10);
@@ -1678,6 +1650,7 @@ function normalizeStatus(value){
     }
 
     function attachStoreClicks(scope){
+      if (!scope) return;
       scope.querySelectorAll("[data-store]").forEach(el => {
         el.addEventListener("click", () => openStoreDetail(el.getAttribute("data-store")));
       });
@@ -1720,8 +1693,8 @@ function normalizeStatus(value){
         const percAlta = totalLojas ? (lojasAlta / totalLojas) * 100 : 0;
         const percBaixa = totalLojas ? (lojasBaixa / totalLojas) * 100 : 0;
         const percConcluido = monthly.monthTotalPPA
-  ? Math.min((monthly.monthTotalConcluido / monthly.monthTotalPPA) * 100, 100)
-  : 0;
+          ? Math.min((monthly.monthTotalConcluido / monthly.monthTotalPPA) * 100, 100)
+          : 0;
 
         return {
           title: "PPA Resumo Mensal",
@@ -1796,7 +1769,7 @@ function normalizeStatus(value){
             <div class="card">
               <div class="summary-text">
                 No recorte atual, o total oficial foi de <strong>${formatPercent(comparison.todayTotal)}</strong>.
-                ${comparison.previousDate ? `No dia anterior, foi de <strong>${formatPercent(comparison.yesterdayTotal)}</strong>.` : ""}
+                ${comparison.previousDate ? `No último PPA, foi de <strong>${formatPercent(comparison.yesterdayTotal)}</strong>.` : ""}
                 <br><br>
                 A variação foi de <strong>${comparison.previousDate ? formatDeltaPercent(comparison.totalDelta) : "-"}</strong>.
                 <br><br>
@@ -1811,9 +1784,11 @@ function normalizeStatus(value){
     }
 
     function bindMonthlyMetricClicks(scope){
+      if (!scope) return;
       scope.querySelectorAll("[data-metric]").forEach(card => {
         card.addEventListener("click", () => {
           const zone = scope.querySelector("#monthlyInteractiveZone");
+          if (!zone) return;
           zone.innerHTML = renderMonthlyInteractiveDetail(card.getAttribute("data-metric"));
           attachStoreClicks(scope);
         });
@@ -1821,17 +1796,24 @@ function normalizeStatus(value){
     }
 
     function openMenuModal(type){
-      const content = buildMenuContent(type);
-      $("menuModalTitle").textContent = content.title;
-      $("menuModalSub").textContent = content.sub;
-      $("menuModalBody").innerHTML = content.html;
-      $("menuModal").classList.add("show");
+      try {
+        const content = buildMenuContent(type);
 
-      attachStoreClicks($("menuModalBody"));
-      if(type === "monthly") bindMonthlyMetricClicks($("menuModalBody"));
+        if ($("menuModalTitle")) $("menuModalTitle").textContent = content.title;
+        if ($("menuModalSub")) $("menuModalSub").textContent = content.sub;
+        if ($("menuModalBody")) $("menuModalBody").innerHTML = content.html;
+
+        openModal("menuModal");
+
+        if ($("menuModalBody")) {
+          attachStoreClicks($("menuModalBody"));
+          if (type === "monthly") bindMonthlyMetricClicks($("menuModalBody"));
+        }
+      } catch (error) {
+        console.error("Erro ao abrir modal do menu:", error);
+        alert("Não foi possível abrir este modal.");
+      }
     }
-
-    function closeMenuModal(){ $("menuModal").classList.remove("show"); }
 
     async function exportElementAsPNG(elementId, filenameBase){
       try{
@@ -1841,6 +1823,8 @@ function normalizeStatus(value){
         }
 
         const source = $(elementId);
+        if (!source) return;
+
         const clone = source.cloneNode(true);
         clone.style.width = `${Math.max(source.scrollWidth, 900)}px`;
         clone.style.maxWidth = "none";
@@ -1892,39 +1876,42 @@ function normalizeStatus(value){
         showLoader("Iniciando leitura...");
         await loadAllData();
         renderAll();
-        hideLoader();
       } catch (err){
-        console.error(err);
+        console.error("Erro no init:", err);
+        alert("Erro ao carregar os dados do dashboard.");
         setLoader(100, "Erro ao carregar os dados do banco.");
+      } finally {
+        hideLoader();
       }
     }
 
-    $("dateSelect").addEventListener("change", (e) => {
+    on("dateSelect", "change", (e) => {
       state.selectedDate = e.target.value;
       state.selectedStore = "";
       renderAll();
     });
 
-    $("regionSelect").addEventListener("change", (e) => {
+    on("regionSelect", "change", (e) => {
       state.selectedRegion = e.target.value;
       state.selectedStore = "";
       renderAll();
     });
 
-    $("storeSelect").addEventListener("change", (e) => {
+    on("storeSelect", "change", (e) => {
       state.selectedStore = e.target.value;
       renderAll();
     });
 
-    $("reloadBtn").addEventListener("click", async () => {
+    on("reloadBtn", "click", async () => {
       try{
         showLoader("Atualizando dados...");
         await loadAllData();
         renderAll();
-        hideLoader();
       } catch (err){
         console.error(err);
         setLoader(100, "Erro ao atualizar.");
+      } finally {
+        hideLoader();
       }
     });
 
@@ -1932,34 +1919,25 @@ function normalizeStatus(value){
       btn.addEventListener("click", () => openMenuModal(btn.getAttribute("data-menu")));
     });
 
-    $("openTableInfoBtn").addEventListener("click", () => openMenuModal("dayresume"));
-    $("exportPngBtn").addEventListener("click", () => exportElementAsPNG("tableSection", "ppa-tabela"));
+    on("openTableInfoBtn", "click", () => openMenuModal("dayresume"));
+    on("exportPngBtn", "click", () => exportElementAsPNG("tableSection", "ppa-tabela"));
+    on("menuModalPhotoBtn", "click", () => exportElementAsPNG("menuModalCapture", "ppa-modal"));
+    on("detailPhotoBtn", "click", () => exportElementAsPNG("detailModalCapture", "ppa-loja"));
 
-    $("menuModalPhotoBtn").addEventListener("click", () => exportElementAsPNG("menuModalCapture", "ppa-modal"));
-    $("detailPhotoBtn").addEventListener("click", () => exportElementAsPNG("detailModalCapture", "ppa-loja"));
-
-    $("adminAccessBtn").addEventListener("click", () => {
+    on("adminAccessBtn", "click", () => {
       window.location.href = "/admin";
     });
 
-    $("aboutBtn").addEventListener("click", openAbout);
-    $("closeAboutBtn").addEventListener("click", closeAbout);
-    $("aboutModal").addEventListener("click", (e) => {
-      if(e.target.id === "aboutModal") closeAbout();
-    });
+    on("aboutBtn", "click", openAbout);
+    on("closeAboutBtn", "click", closeAbout);
+    on("closeMenuModalBtn", "click", closeMenuModal);
+    on("closeDetailBtn", "click", closeStoreDetail);
+    on("openSidebarBtn", "click", openSidebar);
+    on("sidebarOverlay", "click", closeSidebar);
 
-    $("closeMenuModalBtn").addEventListener("click", closeMenuModal);
-    $("menuModal").addEventListener("click", (e) => {
-      if(e.target.id === "menuModal") closeMenuModal();
-    });
-
-    $("closeDetailBtn").addEventListener("click", closeStoreDetail);
-    $("detailModal").addEventListener("click", (e) => {
-      if(e.target.id === "detailModal") closeStoreDetail();
-    });
-
-    $("openSidebarBtn").addEventListener("click", openSidebar);
-    $("sidebarOverlay").addEventListener("click", closeSidebar);
+    bindOverlayClose("aboutModal");
+    bindOverlayClose("menuModal");
+    bindOverlayClose("detailModal");
 
     init();
   </script>
