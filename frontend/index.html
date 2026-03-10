@@ -1494,6 +1494,59 @@
       closeModal("menuModal");
     }
 
+    function getStoreDetail(storeName){
+      let storeRows = state.storeRows.filter(r => r.loja === storeName);
+
+      if(state.selectedRegion){
+        storeRows = storeRows.filter(r => r.regional === state.selectedRegion);
+      }
+
+      storeRows.sort((a,b) => a.date.localeCompare(b.date));
+
+      if(!storeRows.length) return null;
+
+      const days = storeRows.length;
+      const days100 = storeRows.filter(r => Number(r.aderencia || 0) >= 100).length;
+      const daysNot100 = days - days100;
+      const highDays = storeRows.filter(r => Number(r.aderencia || 0) >= 95).length;
+
+      const totalProdutosModelo = storeRows.reduce((sum, r) => {
+        return sum + Number(r.qtdModeloPPA || 0);
+      }, 0);
+
+      const totalConcluido = storeRows.reduce((sum, r) => {
+        return sum + Number(r.qtdModeloConcluido || 0);
+      }, 0);
+
+      const avgAdherence = average(storeRows.map(r => Number(r.aderencia || 0)));
+
+      const bestDay = [...storeRows].sort((a,b) => {
+        return Number(b.aderencia || 0) - Number(a.aderencia || 0);
+      })[0];
+
+      const worstDay = [...storeRows].sort((a,b) => {
+        return Number(a.aderencia || 0) - Number(b.aderencia || 0);
+      })[0];
+
+      const regional = storeRows[0].regional || "-";
+
+      return {
+        loja: storeName,
+        regional,
+        days,
+        days100,
+        daysNot100,
+        highDays,
+        totalProdutosModelo,
+        totalConcluido,
+        avgAdherence,
+        bestDay,
+        worstDay,
+        rows: storeRows
+      };
+    }
+
+
     function openStoreDetail(storeName){
       try {
         const detail = getStoreDetail(storeName);
